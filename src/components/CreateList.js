@@ -60,7 +60,7 @@ const CreateList = () =>  {
       <div className='createList'>
         <div className='header'>
             <div className="img">🧒🏻</div>
-            <h3>Create your first bucketlist!</h3>
+            <h3>Add items to your bucketlist!</h3>
         </div>
         <form className="list" onSubmit={submit}>
           {formFields.map((form, index) => {

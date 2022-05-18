@@ -22,9 +22,9 @@ button {
 }
 
 
-h3 {
-  text-align: center;
 
+td {
+font-size: 0.90rem !important;
 }
 
 .bucket {
@@ -167,6 +167,32 @@ h3 {
   margin: 0 auto;
   padding: 20px 0 50px 0;
 }
+
+.bucketlist {
+  text-align: center;
+  max-width: 200px;
+  margin: 0 auto;
+  padding: 0px 0 20px 0;
+}
+
+.card {
+    max-width: 350px;
+    margin: 0 auto;
+    border-radius: 25px !important;
+    border: 0px;
+    padding: 15px 10px 10px 15px;
+    width: 250px;
+    height: 130px;  
+}
+
+.cardtext {
+  color: #FA824C;
+}
+
+td {
+  height: 20px;
+}
+
 
 .list {
   text-align: center;

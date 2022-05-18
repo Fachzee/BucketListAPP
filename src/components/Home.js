@@ -3,13 +3,14 @@ import {UserContext} from '../context/UserContext'
 import { Link } from 'react-router-dom';
 
 const Home = () => {
-    const {user, logout, userList} = useContext(UserContext);
+    
+    const {user, logout} = useContext(UserContext);
+
     return (
         <div>
             <div className='header'>
                 <div className="img">🧒🏻</div>
                 <h3>Welcome, {user.id}<br/></h3>
-                <pre>{JSON.stringify(user)}</pre>
             </div>
             
             <div className='home'>

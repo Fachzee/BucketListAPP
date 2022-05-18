@@ -7,18 +7,21 @@ export const Axios = axios.create({
     baseURL: 'http://localhost/php-auth-api/',
 });
 
-export const UserContextProvider = ({children}) => {
+export const UserContextProvider = ({ children }) => {
 
     const [theUser, setUser] = useState(null);
+    const [theUserList, setUserList] = useState(null);
     const [wait, setWait] = useState(false);
 
-    const registerUser = async ({name,email,password}) => {
+    const registerUser = async ({name,email,password,nationality,age}) => {
         setWait(true);
         try{
             const {data} = await Axios.post('register.php',{
                 name,
                 email,
-                password 
+                password,
+                nationality,
+                age
             });
             setWait(false);
             return data;
@@ -58,9 +61,11 @@ export const UserContextProvider = ({children}) => {
             const {data} = await Axios.get('getUser.php');
             if(data.success && data.user){
                 setUser(data.user);
+                setUserList(data.userlist);
                 return;
             }
             setUser(null);
+            setUserList(null);
         }
     }
 
@@ -74,10 +79,11 @@ export const UserContextProvider = ({children}) => {
     const logout = () => {
         localStorage.removeItem('loginToken');
         setUser(null);
+        setUserList(null);
     }
 
     return (
-        <UserContext.Provider value={{registerUser,loginUser,wait, user:theUser,loggedInCheck,logout}}>
+        <UserContext.Provider value={{registerUser,loginUser,wait, user:theUser,userList:theUserList,loggedInCheck,logout}}>
             {children}
         </UserContext.Provider>
     );

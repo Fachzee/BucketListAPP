@@ -40,7 +40,7 @@ const Explore = () => {
                     </Row>
                     <Row>
                         <Col>
-                            <Link to="/seeProfile">
+                            <Link to={'/seeProfile?id='+userAllList.id}>
                                 <button className="seeProfileB" type="submit">See profile</button>
                             </Link>  
                         </Col>

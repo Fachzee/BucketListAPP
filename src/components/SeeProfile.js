@@ -5,8 +5,23 @@ import { Link } from 'react-router-dom';
 import Bucket from "../images/bucket.png";
 
 const Explore = () => {
-    const {user} = useContext(UserContext);
-    console.log(user);
+    const {userAllList} = useContext(UserContext);
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    const id = urlParams.get('id')
+    var name = '';
+    var email = '';
+    var nationality = '';
+    var age = '';
+
+    userAllList.forEach(user => {
+        if(user.id === id){
+            name = user.name;
+            email = user.email;
+            nationality = user.nationality;
+            age = user.age;
+        }
+    })
 
     return (
         <div>
@@ -24,7 +39,7 @@ const Explore = () => {
                         <Col><b className='cardtext'>Name</b></Col>
                     </Row>
                     <Row className="mt-3">
-                        <Col><b>{user.name}</b></Col>
+                        <Col><b>{name}</b></Col>
                     </Row>
                 </Container> 
 
@@ -33,7 +48,7 @@ const Explore = () => {
                         <Col><b className='cardtext'>Email</b></Col>
                     </Row>
                     <Row className="mt-3">
-                        <Col><b>{user.email}</b></Col>
+                        <Col><b>{email}</b></Col>
                     </Row>
                 </Container> 
 
@@ -42,7 +57,7 @@ const Explore = () => {
                         <Col><b className='cardtext'>Nationality</b></Col>
                     </Row>
                     <Row className="mt-3">
-                        <Col><b>{user.nationality}</b></Col>
+                        <Col><b>{nationality}</b></Col>
                     </Row>
                 </Container> 
 
@@ -51,7 +66,7 @@ const Explore = () => {
                         <Col><b className='cardtext'>Age</b></Col>
                     </Row>
                     <Row className="mt-3">
-                        <Col><b>{user.age}</b></Col>
+                        <Col><b>{age}</b></Col>
                     </Row>
                 </Container> 
     </div>

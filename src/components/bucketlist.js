@@ -1,14 +1,17 @@
 import {useContext} from 'react'
 import {UserContext} from '../context/UserContext'
 import { Link } from 'react-router-dom';
-import { Container } from 'react-bootstrap';
+import { Col, Row, Container } from 'react-bootstrap';
+import deleteBucket from "../images/delete.png";
+import Bucket from "../images/bucket.png";
 
-const EditProfile = () => {
+const BucketList = () => {
     const {userList} = useContext(UserContext);
+
     return (
     <div>
         <div className='header'>
-            <div className="img">🧒🏻</div>
+            <img className="mb-2"alt="bucket" src={Bucket} />
             <h3>See your bucketlist!</h3>
             <div className='bucketlist'>
                 <Link to="/createList">
@@ -18,22 +21,29 @@ const EditProfile = () => {
         </div>
 
         {userList ? (
-            userList.map((userList, index) => ( 
-                 <tr className='card mb-3' data-index={index}>
-                    <td className='cardtext'>To-do</td>
-                    <td className='mb-3'>{userList.itemList}</td>  
-                    <td className='cardtext'>Country</td>
-                    <td>{userList.itemCountry}</td>   
-                </tr>
+            userList.map((userList) => (
+                <Container className="card text-center mb-3" fluid>
+                    <Row>
+                        <Col><b className='cardtext'>To-do</b></Col>
+                        <Col><b className='cardtext'>Destination</b></Col>
+                    </Row>
+                    <Row>
+                        <Col><span>{userList.itemList}</span></Col>
+                        <Col><span>{userList.itemCountry}</span> </Col>
+                    </Row>
+                    <Row className='mt-3'>
+                        <Col><img className="" src={deleteBucket} alt="remove button"></img></Col>
+                    </Row>
+                </Container>
             ))               
                 ) : (
                     <div className='text-center'>
-                        <h4>Your bucketlist is empty!</h4>
+                        <h4>There are no bucketlists to be shown!</h4>
                     </div>
-        )}   
-  
+        )} 
+            <div className="bottom-link"><Link to="/">↩️</Link></div>  
     </div>
     )
 }
 
-export default EditProfile;
+export default BucketList;

@@ -11,6 +11,7 @@ export const UserContextProvider = ({ children }) => {
 
     const [theUser, setUser] = useState(null);
     const [theUserList, setUserList] = useState(null);
+    const [allUsersList, setAllUsersList] = useState(null);
     const [wait, setWait] = useState(false);
 
     const registerUser = async ({name,email,password,nationality,age}) => {
@@ -62,10 +63,12 @@ export const UserContextProvider = ({ children }) => {
             if(data.success && data.user){
                 setUser(data.user);
                 setUserList(data.userlist);
+                setAllUsersList(data.userAlllist);
                 return;
             }
             setUser(null);
             setUserList(null);
+            setAllUsersList(null);
         }
     }
 
@@ -83,7 +86,7 @@ export const UserContextProvider = ({ children }) => {
     }
 
     return (
-        <UserContext.Provider value={{registerUser,loginUser,wait, user:theUser,userList:theUserList,loggedInCheck,logout}}>
+        <UserContext.Provider value={{registerUser,loginUser,wait, user:theUser,userList:theUserList,userAllList:allUsersList,loggedInCheck,logout}}>
             {children}
         </UserContext.Provider>
     );

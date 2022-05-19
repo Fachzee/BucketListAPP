@@ -7,8 +7,10 @@ import Login from './components/Login';
 import Register from './components/Register';
 import Home from './components/Home';
 import Explore from './components/Explore';
-import BucketList from './components/bucketlist';
+import BucketList from './components/Bucketlist';
 import CreateList from './components/CreateList';
+import EditProfile from './components/EditProfile';
+import SeeProfile from './components/SeeProfile';
 
 function App() {
 
@@ -28,6 +30,8 @@ function App() {
             { user && <Route path="/explore" element={<Explore/>} /> }
             { user && <Route path="/createList" element={<CreateList/>} /> }
             { user && <Route path="/BucketList" element={<BucketList/>} /> }
+            { user && <Route path="/EditProfile" element={<EditProfile/>} /> }
+            { user && <Route path="/SeeProfile" element={<SeeProfile/>} /> }
             <Route path="*" element={<Navigate to={user ? '/':'/login'} />} />
           </Routes>
         </BrowserRouter>

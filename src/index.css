@@ -168,6 +168,10 @@ font-size: 0.90rem !important;
   padding: 20px 0 50px 0;
 }
 
+.seeProfileB {
+  max-width: 150px;
+}
+
 .bucketlist {
   text-align: center;
   max-width: 200px;
@@ -176,23 +180,26 @@ font-size: 0.90rem !important;
 }
 
 .card {
-    max-width: 350px;
     margin: 0 auto;
     border-radius: 25px !important;
     border: 0px;
     padding: 15px 10px 10px 15px;
-    width: 250px;
-    height: 130px;  
+    max-width: 500px;
+    max-height: 180px;  
 }
 
 .cardtext {
   color: #FA824C;
 }
 
-td {
-  height: 20px;
+p {
+  margin-bottom: 3px !important;
 }
 
+p.cardtext {
+  display: inline-block;
+  width: 50%;
+}
 
 .list {
   text-align: center;
